@@ -1,2 +1,2 @@
 # 19_Minishell
-Creating my own little shell in C.
+his project is about creating a simple shell. Yes, your own little bash. You will learn a lot about processes and file descriptors.
