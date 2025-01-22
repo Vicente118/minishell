@@ -9,8 +9,8 @@ ifeq ($(ARCH),arm64)
 READLIB = /opt/homebrew/opt/readline/lib
 READINC = /opt/homebrew/opt/readline/include
 else
-READLIB = /Users/$(shell whoami)/homebrew/opt/readline/lib
-READINC = /Users/$(shell whoami)/homebrew/opt/readline/include
+READLIB = /Users/$(shell whoami)/.brew/opt/readline/lib
+READINC = /Users/$(shell whoami)/.brew/opt/readline/include
 endif
 
 LINK = -L$(READLIB) -I$(READINC) -lreadline
@@ -57,7 +57,7 @@ $(NAME) : $(OBJ)
 	@echo "\033[0;34m 	 ██║ ╚═╝ ██║ ██║ ██║ ╚████║ ██║ ███████║ ██║  ██║ ███████╗ ███████╗ ███████╗ "
 	@echo "\033[0;34m 	 ╚═╝     ╚═╝ ╚═╝ ╚═╝  ╚═══╝ ╚═╝ ╚══════╝ ╚═╝  ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝ "
 	@echo "\033[0;34m                 																 "
-	@$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(LINK) -o $(NAME)
+	@$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(LINK) -g -fsanitize=address  -o $(NAME)
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
